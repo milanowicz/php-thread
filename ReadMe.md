@@ -1,6 +1,10 @@
 # PHP Thread
+![Test](https://github.com/Milanowicz/php-thread/workflows/Testing/badge.svg?branch=master)
 
-Control processes in GNU/Linux systems by this package.
+![](https://img.shields.io/github/repo-size/milanowicz/php-thread)
+![](https://img.shields.io/github/languages/code-size/milanowicz/php-thread)
+
+Control processes in GNU/Linux systems by this package for PHP 8.x
 
 
 ## Usage
