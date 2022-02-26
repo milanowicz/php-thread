@@ -1,0 +1,66 @@
+{
+  "name": "milanowicz/php-thread",
+  "type": "php-library",
+  "description": "PHP-Library for PHP Thread in GNU/Linux Systems",
+  "authors": [
+    {
+      "name": "Milanowicz",
+      "email": "amaru-jive@gmx.de"
+    }
+  ],
+  "license": "GPL-3.0-or-later",
+  "require": {
+    "php": "^8.0"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.6",
+    "infection/infection": "^0.26",
+    "johnkary/phpunit-speedtrap": "^3.2",
+    "phpstan/phpstan": "^1.4",
+    "phpunit/phpunit": "^9.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Milanowicz\\Thread\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Milanowicz\\Thread\\": "tests/"
+    }
+  },
+  "config": {
+    "platform": {
+      "php": "8.0"
+    },
+    "sort-packages": true,
+    "allow-plugins": {
+      "composer/package-versions-deprecated": true,
+      "infection/extension-installer": true
+    }
+  },
+  "scripts": {
+    "tests": [
+      "composer style",
+      "composer anlayze",
+      "composer test",
+      "composer infection",
+      "cat testing/coverage.txt"
+    ],
+    "anlayze": [
+      "vendor/bin/phpstan"
+    ],
+    "infection": [
+      "vendor/bin/infection -s -j4 --min-covered-msi=80 --min-msi=80"
+    ],
+    "style": [
+      "vendor/bin/php-cs-fixer fix --config=./.php_cs-fixer.dist.php"
+    ],
+    "style-dry": [
+      "vendor/bin/php-cs-fixer fix --config=./.php_cs-fixer.dist.php -v --dry-run --using-cache=no"
+    ],
+    "test": [
+      "vendor/bin/phpunit"
+    ]
+  }
+}

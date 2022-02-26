@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- https://phpunit.de/manual/current/en/appendixes.configuration.html -->
+<phpunit
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
+  bootstrap="vendor/autoload.php"
+  colors="true"
+  executionOrder="default"
+  forceCoversAnnotation="false"
+  beStrictAboutCoversAnnotation="true"
+  beStrictAboutOutputDuringTests="true"
+  beStrictAboutTodoAnnotatedTests="true"
+  resolveDependencies="true"
+  verbose="true"
+>
+
+  <coverage>
+    <include>
+      <directory>src</directory>
+    </include>
+    <report>
+      <clover outputFile="testing/coverage.xml"/>
+      <html outputDirectory="testing/report"/>
+      <text outputFile="testing/coverage.txt" showUncoveredFiles="true" showOnlySummary="true"/>
+    </report>
+  </coverage>
+
+  <listeners>
+    <listener class="JohnKary\PHPUnit\Listener\SpeedTrapListener">
+      <arguments>
+        <array>
+          <element key="slowThreshold">
+            <integer>5000</integer>
+          </element>
+          <element key="reportLength">
+            <integer>5</integer>
+          </element>
+        </array>
+      </arguments>
+    </listener>
+  </listeners>
+
+  <php>
+    <ini name="error_reporting" value="-1"/>
+    <env name="SHELL_VERBOSITY" value="-1"/>
+  </php>
+
+  <testsuites>
+    <testsuite name="Project Test Suite">
+      <directory>tests</directory>
+    </testsuite>
+  </testsuites>
+
+  <logging>
+    <testdoxHtml outputFile="testing/testdox.html"/>
+    <testdoxText outputFile="testing/testdox.txt"/>
+  </logging>
+</phpunit>

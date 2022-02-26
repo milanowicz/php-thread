@@ -1,0 +1,43 @@
+name: Testing
+
+on: [push]
+
+jobs:
+  tests:
+    name: "Tests"
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version:
+          - "8.0"
+          - "8.1"
+
+    steps:
+      - name: "Install PHP"
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "${{ matrix.php-version }}"
+          coverage: xdebug3
+
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: "Install dependencies"
+        run: composer install --prefer-dist --no-progress
+
+      - name: "Check Code Style"
+        run: composer style
+        env:
+          PHP_CS_FIXER_IGNORE_ENV: 1
+
+      - name: "Run PHP Static Analysis Tool"
+        run: vendor/bin/phpstan
+
+      - name: "Run PHPUnit tests"
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+
+      - name: "Run Infection mutation tests"
+        run: vendor/bin/infection --min-covered-msi=80 --min-msi=80

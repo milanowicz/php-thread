@@ -1,0 +1,21 @@
+{
+  "source": {
+    "directories": [
+      "src"
+    ]
+  },
+  "logs": {
+    "text": "testing/infection.log",
+    "summary": "testing/infection-summary.log",
+    "json": "testing/infection-log.json",
+    "perMutator": "testing/infection-mutator.md"
+  },
+  "mutators": {
+    "@default": true,
+    "global-ignoreSourceCodeByRegex": [
+      ".*exec.*",
+      ".*shell.*",
+      ".*PHP_EOL.*"
+    ]
+  }
+}
