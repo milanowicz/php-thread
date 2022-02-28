@@ -14,30 +14,30 @@ final class ThreadsTest extends ThreadTestAbstract
 
     public function testSingleBehaviour(): void
     {
-        $t = $this;
-        echo PHP_EOL . getcwd() . PHP_EOL;
-        echo __DIR__ . PHP_EOL;
-        $this->loopingTest(static function () use ($t) {
-            $t->thread = new Threads();
-            $t->thread->exec(self::COMMAND_1);
-            $t->thread->exec(self::COMMAND_2);
+        $this->thread = new Threads();
+        $this->thread->exec(self::COMMAND_1);
+        $this->thread->exec(self::COMMAND_1);
+        $this->assertGreaterThanOrEqual(1, $this->thread->getProcesses());
+        $running = false;
+        while ($this->thread->anyRunning()) {
+            $running = true;
+            usleep(300);
+        }
+        $this->assertTrue($running);
 
-            $b = new Threads();
-            $b->exec(self::COMMAND_3);
-            $b->exec(self::COMMAND_4);
-
-            $t->assertGreaterThanOrEqual(1, $b->getProcesses());
-            $t->assertGreaterThanOrEqual(1, $t->thread->getProcesses());
-            $running = false;
-            while ($t->thread->anyRunning() || $b->anyRunning()) {
-                $running = true;
-                usleep(300);
-            }
-            $t->assertTrue($running);
-            $t->assertStringContainsString($t->thread::NO_THREAD, $t->thread->getStateAsString());
-            $t->assertCount(0, $b->getProcesses());
-            $t->assertCount(2, $b->getHistory());
-            $t->assertCount(2, $t->thread->getHistory());
-        });
+        $b = new Threads();
+        $b->exec(self::COMMAND_1);
+        $b->exec(self::COMMAND_1);
+        $this->assertGreaterThanOrEqual(1, $b->getProcesses());
+        $running = false;
+        while ($b->anyRunning()) {
+            $running = true;
+            usleep(300);
+        }
+        $this->assertTrue($running);
+        $this->assertStringContainsString($this->thread::NO_THREAD, $this->thread->getStateAsString());
+        $this->assertCount(0, $b->getProcesses());
+        $this->assertCount(2, $b->getHistory());
+        $this->assertCount(2, $this->thread->getHistory());
     }
 }

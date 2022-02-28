@@ -40,4 +40,11 @@ jobs:
         run: vendor/bin/phpunit --coverage-clover=coverage.xml
 
       - name: "Run Infection mutation tests"
-        run: vendor/bin/infection --min-covered-msi=80 --min-msi=80
+        run: vendor/bin/infection --min-covered-msi=50 --min-msi=50
+        env:
+          INFECTION_DASHBOARD_API_KEY: ${{ secrets.INFECTION_DASHBOARD_API_KEY }}
+
+      - name: "Send coverage to codecov.io"
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

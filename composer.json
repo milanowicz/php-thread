@@ -51,7 +51,7 @@
       "vendor/bin/phpstan"
     ],
     "infection": [
-      "vendor/bin/infection -s -j4 --min-covered-msi=80 --min-msi=80"
+      "vendor/bin/infection -s -j4 --min-covered-msi=50 --min-msi=50"
     ],
     "style": [
       "vendor/bin/php-cs-fixer fix --config=./.php_cs-fixer.dist.php"

@@ -9,9 +9,11 @@ abstract class ThreadAbstract implements ThreadInterface
     public function exec(string $command): int
     {
         exec($command . " > /dev/null 2>&1 & echo $!", $output);
-        $pid = (int) $output[0];
-        $this->addProcess($pid);
-        return $pid;
+        if (isset($output[0])) {
+            $pid = (int) $output[0];
+            $this->addProcess($pid);
+        }
+        return $pid ?? 0;
     }
 
     public function shell(string $command, int $priority = 0): int
@@ -86,7 +88,7 @@ abstract class ThreadAbstract implements ThreadInterface
     {
         $key = $this->getKey($pid, $key);
         if ($key > 0) {
-            exec('ps ' . $pid . ' && kill ' . $pid);
+            exec('ps ' . $pid . ' && kill -s 9 ' . $pid);
             $this->isRunning($pid);
         }
         return $this;

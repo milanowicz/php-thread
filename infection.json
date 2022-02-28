@@ -8,7 +8,10 @@
     "text": "testing/infection.log",
     "summary": "testing/infection-summary.log",
     "json": "testing/infection-log.json",
-    "perMutator": "testing/infection-mutator.md"
+    "perMutator": "testing/infection-mutator.md",
+    "stryker": {
+      "badge": "main"
+    }
   },
   "mutators": {
     "@default": true,
