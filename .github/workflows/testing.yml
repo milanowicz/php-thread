@@ -40,7 +40,7 @@ jobs:
         run: vendor/bin/phpunit --coverage-clover=coverage.xml
 
       - name: "Run Infection mutation tests"
-        run: vendor/bin/infection --min-covered-msi=50 --min-msi=50
+        run: vendor/bin/infection --min-covered-msi=90 --min-msi=90
         env:
           INFECTION_DASHBOARD_API_KEY: ${{ secrets.INFECTION_DASHBOARD_API_KEY }}
 

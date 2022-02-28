@@ -16,9 +16,10 @@ final class ThreadSingletonTest extends ThreadTestAbstract
     {
         $this->thread = new ThreadSingleton();
         $this->thread->reset();
-        $this->thread->exec(self::COMMAND_1);
-        $this->thread->exec(self::COMMAND_1);
-        $this->assertGreaterThanOrEqual(1, $this->thread->getProcesses());
+        $pid1 = $this->thread->exec(self::COMMAND_1);
+        $pid2 = $this->thread->exec(self::COMMAND_1);
+        $this->assertContains($pid1, $this->thread->getProcesses());
+        $this->assertContains($pid2, $this->thread->getProcesses());
         $running = false;
         while ($this->thread->anyRunning()) {
             $running = true;
@@ -40,6 +41,7 @@ final class ThreadSingletonTest extends ThreadTestAbstract
         $this->assertStringContainsString($this->thread::NO_THREAD, $this->thread->getStateAsString());
         $this->assertCount(0, $b->getProcesses());
         $this->assertCount(4, $b->getHistory());
+        $this->assertCount(0, $this->thread->getProcesses());
         $this->assertCount(4, $this->thread->getHistory());
     }
 }

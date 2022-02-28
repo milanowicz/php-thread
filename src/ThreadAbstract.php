@@ -27,12 +27,12 @@ abstract class ThreadAbstract implements ThreadInterface
         return $pid;
     }
 
-    public function isRunning(int $pid, int $key = -1): bool
+    public function isRunning(int $pid): bool
     {
         $run = false;
-        $key = $this->getKey($pid, $key);
         if ($pid > 0) {
             exec("ps $pid", $processState);
+            $key = $this->getPidKey($pid);
             if (count($processState) > 1) {
                 $run = true;
             } elseif (isset($this->getProcesses()[$key])) {
@@ -47,8 +47,8 @@ abstract class ThreadAbstract implements ThreadInterface
     public function anyRunning(): bool
     {
         $run = false;
-        foreach ($this->getProcesses() as $key => $pid) {
-            if ($this->isRunning($pid, $key)) {
+        foreach ($this->getProcesses() as $pid) {
+            if ($this->isRunning($pid)) {
                 $run = true;
             }
         }
@@ -84,9 +84,9 @@ abstract class ThreadAbstract implements ThreadInterface
         return $message;
     }
 
-    public function stop(int $pid, int $key = -1): self
+    public function stop(int $pid): self
     {
-        $key = $this->getKey($pid, $key);
+        $key = $this->getPidKey($pid);
         if ($key > 0) {
             exec('ps ' . $pid . ' && kill -s 9 ' . $pid);
             $this->isRunning($pid);
@@ -96,17 +96,14 @@ abstract class ThreadAbstract implements ThreadInterface
 
     public function stopAll(): self
     {
-        foreach ($this->getProcesses() as $key => $pid) {
-            $this->stop($pid, $key);
+        foreach ($this->getProcesses() as $pid) {
+            $this->stop($pid);
         }
         return $this;
     }
 
-    private function getKey(int $pid, int $key): int
+    private function getPidKey(int $pid): int
     {
-        if ($key < 1 || !isset($this->getProcesses()[$key])) {
-            $key = (int) array_search($pid, $this->getProcesses(), true);
-        }
-        return $key;
+        return (int) array_search($pid, $this->getProcesses(), true);
     }
 }

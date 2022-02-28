@@ -18,17 +18,18 @@ abstract class ThreadTestAbstract extends TestCase
             ->stopAll()
             ->reset();
         $this->thread = null;
-        ob_flush();
-        flush();
     }
 
     public function testStartAndStop(): void
     {
-        $this->thread->exec(self::COMMAND_1);
-        $this->thread->exec(self::COMMAND_1);
-        $this->thread->exec(self::COMMAND_1);
-        $this->thread->exec(self::COMMAND_1);
-        $this->assertCount(4, $this->thread->getProcesses());
+        $pid1 = $this->thread->exec(self::COMMAND_1);
+        $pid2 = $this->thread->exec(self::COMMAND_1);
+        $pid3 = $this->thread->exec(self::COMMAND_1);
+        $pid4 = $this->thread->exec(self::COMMAND_1);
+        $this->assertContains($pid1, $this->thread->getProcesses());
+        $this->assertContains($pid2, $this->thread->getProcesses());
+        $this->assertContains($pid3, $this->thread->getProcesses());
+        $this->assertContains($pid4, $this->thread->getProcesses());
         $this->assertInstanceOf(
             ThreadInterface::class,
             $this->thread->stopAll()
@@ -124,13 +125,13 @@ abstract class ThreadTestAbstract extends TestCase
 
     public function testIsRunning(): void
     {
-        $this->assertTrue($this->thread->isRunning(1, -1));
-        $this->assertFalse($this->thread->isRunning(0, -1));
-        $this->assertFalse($this->thread->isRunning(-1, -1));
+        $this->assertTrue($this->thread->isRunning(1));
+        $this->assertFalse($this->thread->isRunning(0));
+        $this->assertFalse($this->thread->isRunning(-1));
 
         $this->thread->addProcess(0);
-        $this->assertFalse($this->thread->isRunning(0, 0));
-        $this->assertFalse($this->thread->isRunning(0, -1));
+        $this->assertFalse($this->thread->isRunning(0));
+        $this->assertFalse($this->thread->isRunning(0));
         $this->assertCount(0, $this->thread->getHistory());
     }
 
@@ -144,7 +145,7 @@ abstract class ThreadTestAbstract extends TestCase
             0,
             $this->invokeMethod(
                 $this->thread,
-                'getKey',
+                'getPidKey',
                 $pid,
                 -1
             )
@@ -154,7 +155,7 @@ abstract class ThreadTestAbstract extends TestCase
             1,
             $this->invokeMethod(
                 $this->thread,
-                'getKey',
+                'getPidKey',
                 $pid2,
                 -1
             )
@@ -164,7 +165,7 @@ abstract class ThreadTestAbstract extends TestCase
             0,
             $this->invokeMethod(
                 $this->thread,
-                'getKey',
+                'getPidKey',
                 $pid,
                 3
             )
@@ -174,7 +175,7 @@ abstract class ThreadTestAbstract extends TestCase
             1,
             $this->invokeMethod(
                 $this->thread,
-                'getKey',
+                'getPidKey',
                 $pid2,
                 2
             )
@@ -184,7 +185,7 @@ abstract class ThreadTestAbstract extends TestCase
             1,
             $this->invokeMethod(
                 $this->thread,
-                'getKey',
+                'getPidKey',
                 $pid2,
                 1
             )
@@ -194,7 +195,7 @@ abstract class ThreadTestAbstract extends TestCase
             0,
             $this->invokeMethod(
                 $this->thread,
-                'getKey',
+                'getPidKey',
                 -1,
                 0
             )
@@ -204,7 +205,7 @@ abstract class ThreadTestAbstract extends TestCase
             0,
             $this->invokeMethod(
                 $this->thread,
-                'getKey',
+                'getPidKey',
                 0,
                 -1
             )
@@ -214,19 +215,9 @@ abstract class ThreadTestAbstract extends TestCase
             0,
             $this->invokeMethod(
                 $this->thread,
-                'getKey',
+                'getPidKey',
                 0,
                 -1
-            )
-        );
-
-        $this->assertEquals(
-            1,
-            $this->invokeMethod(
-                $this->thread,
-                'getKey',
-                1,
-                1
             )
         );
     }

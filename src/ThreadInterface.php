@@ -53,10 +53,9 @@ interface ThreadInterface
      * Is process running or not?
      *
      * @param int $pid
-     * @param int $key
      * @return bool
      */
-    public function isRunning(int $pid, int $key = -1): bool;
+    public function isRunning(int $pid): bool;
 
     /**
      * Is any process still running?
@@ -104,10 +103,9 @@ interface ThreadInterface
      * Stop a process by Pid.
      *
      * @param int $pid
-     * @param int $key
      * @return $this
      */
-    public function stop(int $pid, int $key = -1): self;
+    public function stop(int $pid): self;
 
     /**
      * Stop all running processes
