@@ -10,7 +10,7 @@
     "json": "testing/infection-log.json",
     "perMutator": "testing/infection-mutator.md",
     "stryker": {
-      "badge": "main"
+      "badge": "master"
     }
   },
   "mutators": {
