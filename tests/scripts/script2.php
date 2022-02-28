@@ -1,3 +1,3 @@
 <?php
 
-sleep(4);
+sleep(6);

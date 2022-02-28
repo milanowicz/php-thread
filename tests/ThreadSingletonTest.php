@@ -15,6 +15,8 @@ final class ThreadSingletonTest extends ThreadTestAbstract
     public function testSingleBehaviour(): void
     {
         $t = $this;
+        echo PHP_EOL . getcwd() . PHP_EOL;
+        echo __DIR__ . PHP_EOL;
         $this->loopingTest(static function () use ($t) {
             $t->thread = new ThreadSingleton();
             $t->thread->reset();
