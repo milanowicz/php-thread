@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17b21d5558e351eb712595be23c7d168",
+    "content-hash": "c0991b6e3406341ce8aa1decbf6a8b4c",
     "packages": [],
     "packages-dev": [
         {
@@ -955,6 +955,77 @@
                 "source": "https://github.com/justinrainbow/json-schema/tree/5.2.11"
             },
             "time": "2021-07-22T09:24:00+00:00"
+        },
+        {
+            "name": "milanowicz/php-testing",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/milanowicz/php-testing.git",
+                "reference": "3909fe2c7a3bc6ac65c15dffe81615d031247467"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/milanowicz/php-testing/zipball/3909fe2c7a3bc6ac65c15dffe81615d031247467",
+                "reference": "3909fe2c7a3bc6ac65c15dffe81615d031247467",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.6",
+                "infection/infection": "^0.26",
+                "phpstan/phpstan": "^1.4",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "php-library",
+            "autoload": {
+                "psr-4": {
+                    "Milanowicz\\Testing\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Milanowicz\\Testing\\": "tests/"
+                }
+            },
+            "scripts": {
+                "tests": [
+                    "composer style",
+                    "composer anlayze",
+                    "composer test",
+                    "composer infection",
+                    "cat testing/coverage.txt"
+                ],
+                "anlayze": [
+                    "vendor/bin/phpstan"
+                ],
+                "infection": [
+                    "vendor/bin/infection -s -j4 --min-covered-msi=99 --min-msi=99"
+                ],
+                "style": [
+                    "vendor/bin/php-cs-fixer fix --config=./.php_cs-fixer.dist.php"
+                ],
+                "style-dry": [
+                    "vendor/bin/php-cs-fixer fix --config=./.php_cs-fixer.dist.php -v --dry-run --using-cache=no"
+                ],
+                "test": [
+                    "vendor/bin/phpunit"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "milanowicz",
+                    "email": "amaru-jive@gmx.de"
+                }
+            ],
+            "description": "PHP-Library for PHPUnit testing",
+            "support": {
+                "source": "https://github.com/milanowicz/php-testing/tree/1.0.1",
+                "issues": "https://github.com/milanowicz/php-testing/issues"
+            },
+            "time": "2022-03-01T20:43:23+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2310,12 +2381,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Pipeline\\": "src/"
-                },
                 "files": [
                     "src/functions.php"
-                ]
+                ],
+                "psr-4": {
+                    "Pipeline\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [

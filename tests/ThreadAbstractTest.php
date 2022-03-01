@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace Milanowicz\Thread;
 
-abstract class ThreadTestAbstract extends TestCase
+abstract class ThreadAbstractTest extends TestCase
 {
-    public const COMMAND = '/bin/sleep';
-    public const COMMAND_1 = self::COMMAND . ' 1';
-    public const COMMAND_2 = self::COMMAND . ' 2';
     protected ?ThreadInterface $thread = null;
 
     public function tearDown(): void

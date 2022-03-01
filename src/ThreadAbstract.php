@@ -9,11 +9,9 @@ abstract class ThreadAbstract implements ThreadInterface
     public function exec(string $command): int
     {
         exec($command . " > /dev/null 2>&1 & echo $!", $output);
-        if (isset($output[0])) {
-            $pid = (int) $output[0];
-            $this->addProcess($pid);
-        }
-        return $pid ?? 0;
+        $pid = (int) $output[0];
+        $this->addProcess($pid);
+        return $pid;
     }
 
     public function shell(string $command, int $priority = 0): int

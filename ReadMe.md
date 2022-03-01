@@ -26,6 +26,23 @@ Class to control thread for one command
     $thread->reset();
 
 
+Worker to run commands
+
+    $worker = new Milanowicz\Thread\Worker([
+        'command' => '/bin/sleep 2',
+        'execMaxCounter' => 10, // How many would you execute?
+        'maxWorkers' => 2, // How process(es) should be started? 
+        'maxExecutionTime' => 120, // Seconds to run php script
+        'memoryLimit' => '32M', // Maximum for php memory limit
+        'workerDelayStart' => 1, // Delay for starting processes after each other
+        'workerRunSleep' => 2, // Sleep to check again if enough processes are running
+    ]);
+    $worker->setCheckDispatcher(function () { return <bool>; });
+    $worker->run(); // Main call to start worker loop
+
+    $worker->getThread(); // Get current Thread instance
+
+
 Singleton to control it everywhere you like
 
     $singleton = new Milanowicz\Thread\ThreadSingleton();
@@ -35,6 +52,14 @@ Singleton to control it everywhere you like
     $singleton->stopAll();
     $singleton->reset
 
+Worker and Singleton
+
+    $worker = new Milanowicz\Thread\Worker([
+        'command' => '/bin/sleep 20',
+        'execMaxCounter' => 10, // How many would you execute?
+        'maxWorkers' => 2, // How process(es) should be started?
+    ], new Milanowicz\Thread\ThreadSingleton());
+    $worker->run();
 
 
 ## License

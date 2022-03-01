@@ -1,10 +1,10 @@
 {
   "name": "milanowicz/php-thread",
   "type": "php-library",
-  "description": "PHP-Library for PHP Thread in GNU/Linux Systems",
+  "description": "PHP-Library for Thread(s) in GNU/Linux Systems",
   "authors": [
     {
-      "name": "Milanowicz",
+      "name": "milanowicz",
       "email": "amaru-jive@gmx.de"
     }
   ],
@@ -16,9 +16,16 @@
     "friendsofphp/php-cs-fixer": "^3.6",
     "infection/infection": "^0.26",
     "johnkary/phpunit-speedtrap": "^4.0",
+    "milanowicz/php-testing": "^1.0",
     "phpstan/phpstan": "^1.4",
     "phpunit/phpunit": "^9.5"
   },
+  "repositories": [
+    {
+      "type": "github",
+      "url": "https://github.com/milanowicz/php-testing.git"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "Milanowicz\\Thread\\": "src/"

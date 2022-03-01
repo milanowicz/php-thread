@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Milanowicz\Thread;
 
-final class ThreadsTest extends ThreadTestAbstract
+final class ThreadsTest extends ThreadAbstractTest
 {
     public function setUp(): void
     {
