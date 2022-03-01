@@ -1,10 +1,16 @@
 # PHP Thread
-![Test](https://github.com/Milanowicz/php-thread/workflows/Testing/badge.svg?branch=master)
+![Test](https://github.com/milanowicz/php-thread/workflows/Testing/badge.svg?branch=master)
 [![Mutation testing](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FMilanowicz%2Fphp-thread%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/Milanowicz/php-thread/master)
 [![codecov](https://codecov.io/gh/Milanowicz/php-thread/branch/master/graph/badge.svg?token=42G6ETI9NV)](https://codecov.io/gh/Milanowicz/php-thread)
 
+![](https://img.shields.io/github/v/tag/milanowicz/php-thread)
 ![](https://img.shields.io/github/repo-size/milanowicz/php-thread)
 ![](https://img.shields.io/github/languages/code-size/milanowicz/php-thread)
+
+![](https://img.shields.io/packagist/v/milanowicz/php-thread)
+![](https://img.shields.io/packagist/dt/milanowicz/php-thread)
+![](https://img.shields.io/packagist/dd/milanowicz/php-thread)
+![](https://img.shields.io/packagist/dm/milanowicz/php-thread)
 
 Control processes in GNU/Linux systems by this package for PHP 8.x
 
