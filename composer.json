@@ -20,12 +20,6 @@
     "phpstan/phpstan": "^1.4",
     "phpunit/phpunit": "^9.5"
   },
-  "repositories": [
-    {
-      "type": "github",
-      "url": "https://github.com/milanowicz/php-testing.git"
-    }
-  ],
   "autoload": {
     "psr-4": {
       "Milanowicz\\Thread\\": "src/"

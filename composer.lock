@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0991b6e3406341ce8aa1decbf6a8b4c",
+    "content-hash": "b35eda20b430a2081800c6ac2d786f1f",
     "packages": [],
     "packages-dev": [
         {
@@ -985,35 +985,7 @@
                     "Milanowicz\\Testing\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Milanowicz\\Testing\\": "tests/"
-                }
-            },
-            "scripts": {
-                "tests": [
-                    "composer style",
-                    "composer anlayze",
-                    "composer test",
-                    "composer infection",
-                    "cat testing/coverage.txt"
-                ],
-                "anlayze": [
-                    "vendor/bin/phpstan"
-                ],
-                "infection": [
-                    "vendor/bin/infection -s -j4 --min-covered-msi=99 --min-msi=99"
-                ],
-                "style": [
-                    "vendor/bin/php-cs-fixer fix --config=./.php_cs-fixer.dist.php"
-                ],
-                "style-dry": [
-                    "vendor/bin/php-cs-fixer fix --config=./.php_cs-fixer.dist.php -v --dry-run --using-cache=no"
-                ],
-                "test": [
-                    "vendor/bin/phpunit"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "authors": [
                 {
                     "name": "milanowicz",
@@ -1022,8 +994,8 @@
             ],
             "description": "PHP-Library for PHPUnit testing",
             "support": {
-                "source": "https://github.com/milanowicz/php-testing/tree/1.0.1",
-                "issues": "https://github.com/milanowicz/php-testing/issues"
+                "issues": "https://github.com/milanowicz/php-testing/issues",
+                "source": "https://github.com/milanowicz/php-testing/tree/1.0.1"
             },
             "time": "2022-03-01T20:43:23+00:00"
         },
