@@ -1,7 +1,7 @@
 {
   "name": "milanowicz/php-thread",
   "type": "php-library",
-  "description": "PHP-Library for Thread(s) in GNU/Linux Systems",
+  "description": "Library for Thread(s) in GNU/Linux Systems",
   "authors": [
     {
       "name": "milanowicz",
