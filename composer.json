@@ -13,12 +13,12 @@
     "php": "^8.0"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^3.6",
     "infection/infection": "^0.26",
     "johnkary/phpunit-speedtrap": "^4.0",
     "milanowicz/php-testing": "^1.0",
     "phpstan/phpstan": "^1.4",
-    "phpunit/phpunit": "^9.5"
+    "phpunit/phpunit": "^9.5",
+    "slevomat/coding-standard": "^7.0"
   },
   "autoload": {
     "psr-4": {
@@ -37,28 +37,29 @@
     "sort-packages": true,
     "allow-plugins": {
       "composer/package-versions-deprecated": true,
-      "infection/extension-installer": true
+      "infection/extension-installer": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
     }
   },
   "scripts": {
     "tests": [
       "composer style",
-      "composer anlayze",
+      "composer analyze",
       "composer test",
       "composer infection",
       "cat testing/coverage.txt"
     ],
-    "anlayze": [
+    "analyze": [
       "vendor/bin/phpstan"
     ],
     "infection": [
       "vendor/bin/infection -s -j4 --min-covered-msi=90 --min-msi=90"
     ],
     "style": [
-      "vendor/bin/php-cs-fixer fix --config=./.php_cs-fixer.dist.php"
+      "vendor/bin/phpcs"
     ],
-    "style-dry": [
-      "vendor/bin/php-cs-fixer fix --config=./.php_cs-fixer.dist.php -v --dry-run --using-cache=no"
+    "style-fix": [
+      "vendor/bin/phpcbf"
     ],
     "test": [
       "vendor/bin/phpunit"

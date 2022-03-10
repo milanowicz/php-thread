@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ruleset
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd"
+>
+
+  <arg name="basepath" value="."/>
+  <arg name="cache" value=".phpcs-cache"/>
+  <arg name="colors"/>
+  <arg name="extensions" value="php"/>
+
+  <rule ref="PSR12">
+  </rule>
+
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Classes/ClassConstantVisibilitySniff.php" />
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Classes/PropertySpacingSniff.php" />
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Exceptions/DeadCatchSniff.php" />
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Functions/UnusedParameterSniff.php" />
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Namespaces/AlphabeticallySortedUsesSniff.php" />
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Namespaces/UseFromSameNamespaceSniff.php" />
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Namespaces/UnusedUsesSniff.php" />
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Namespaces/UselessAliasSniff.php" />
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/PHP/TypeCastSniff.php" />
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/PHP/UselessSemicolonSniff.php" />
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/TypeHints/DeclareStrictTypesSniff.php">
+    <properties>
+      <property name="newlinesCountBetweenOpenTagAndDeclare" value="2" />
+      <property name="spacesCountAroundEqualsSign" value="0" />
+    </properties>
+  </rule>
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/TypeHints/ReturnTypeHintSpacingSniff.php" />
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/TypeHints/UnionTypeHintFormatSniff.php" />
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/TypeHints/UselessConstantTypeHintSniff.php" />
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Variables/DisallowSuperGlobalVariableSniff.php" />
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Variables/DuplicateAssignmentToVariableSniff.php" />
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Variables/UnusedVariableSniff.php" />
+  <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Variables/UselessVariableSniff.php" />
+
+  <file>src/</file>
+  <file>tests/</file>
+
+</ruleset>

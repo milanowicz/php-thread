@@ -6,50 +6,50 @@ namespace Milanowicz\Thread;
 
 final class ThreadSingleton extends ThreadAbstract
 {
-    private static array|null $_processes = null;
-    private static array|null $_history = null;
+    private static array|null $processes = null;
+    private static array|null $history = null;
 
     public function __construct()
     {
-        if (self::$_processes === null) {
-            self::$_processes = [];
-            self::$_history = [];
+        if (self::$processes === null) {
+            self::$processes = [];
+            self::$history = [];
         }
     }
 
     public function addProcess(int $pid): self
     {
-        self::$_processes[] = $pid;
+        self::$processes[] = $pid;
         return $this;
     }
 
     public function removeKey(int $key): self
     {
-        unset(self::$_processes[$key]);
+        unset(self::$processes[$key]);
         return $this;
     }
 
     public function addHistory(int $pid): self
     {
-        self::$_history[] = $pid;
+        self::$history[] = $pid;
         return $this;
     }
 
     public function getHistory(): array
     {
-        return self::$_history ?? [];
+        return self::$history ?? [];
     }
 
     public function getProcesses(): array
     {
-        return self::$_processes ?? [];
+        return self::$processes ?? [];
     }
 
     public function reset(): self
     {
         if (!$this->anyRunning()) {
-            self::$_processes = [];
-            self::$_history = [];
+            self::$processes = [];
+            self::$history = [];
         }
         return $this;
     }

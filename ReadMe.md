@@ -24,7 +24,7 @@ Control processes in GNU/Linux systems by this package for PHP 8.x
 Install it by Composer
 
 ```shell
-$ composer require milanowicz/php-thread
+> composer require milanowicz/php-thread
 ```
 
 
@@ -84,27 +84,27 @@ $worker->run();
 
 Run all test suites
 ```shell
-$ composer tests
+> composer tests
 ```
 
 Run PHP CS Fixer to code styling
 ```shell
-$ composer style
+> composer style
 ```
 
 Run PHPStan to analyze
 ```shell
-$ composer anlayze
+> composer anlayze
 ```
 
 Run PHPUnit tests
 ```shell
-$ composer test
+> composer test
 ```
 
 Run Mutation tests by Infection
 ```shell
-$ composer infection
+> composer infection
 ```
 
 
