@@ -6,13 +6,14 @@ jobs:
   tests:
     name: "Tests"
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.experimental }}
 
     strategy:
       fail-fast: false
       max-parallel: 2
       matrix:
+        os: [ubuntu-latest, ubuntu-18.04]
         php-version: ["8.0", "8.1"]
         experimental: [false]
         include:
@@ -42,7 +43,7 @@ jobs:
         run: vendor/bin/phpunit --coverage-clover=coverage.xml
 
       - name: "Run Infection mutation tests"
-        run: vendor/bin/infection --min-covered-msi=90 --min-msi=90
+        run: vendor/bin/infection --min-covered-msi=99 --min-msi=99
         env:
           INFECTION_DASHBOARD_API_KEY: ${{ secrets.INFECTION_DASHBOARD_API_KEY }}
 
