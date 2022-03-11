@@ -6,9 +6,11 @@
   },
   "logs": {
     "text": "testing/infection.log",
+    "html": "testing/infection.html",
     "summary": "testing/infection-summary.log",
     "json": "testing/infection-log.json",
     "perMutator": "testing/infection-mutator.md",
+    "github": true,
     "stryker": {
       "badge": "master"
     }

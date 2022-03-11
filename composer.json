@@ -53,7 +53,7 @@
       "vendor/bin/phpstan"
     ],
     "infection": [
-      "vendor/bin/infection -s -j4 --min-covered-msi=90 --min-msi=90"
+      "vendor/bin/infection -s -j4 --min-covered-msi=99 --min-msi=99"
     ],
     "style": [
       "vendor/bin/phpcs"
