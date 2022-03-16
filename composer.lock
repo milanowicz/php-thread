@@ -716,16 +716,16 @@
         },
         {
             "name": "milanowicz/php-testing",
-            "version": "1.1.3",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/milanowicz/php-testing.git",
-                "reference": "c03c34b56db6cc9266889d37d9852726a7d4c880"
+                "reference": "9f190cd7a71e47e9bd540010f6c24a02eea60626"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/milanowicz/php-testing/zipball/c03c34b56db6cc9266889d37d9852726a7d4c880",
-                "reference": "c03c34b56db6cc9266889d37d9852726a7d4c880",
+                "url": "https://api.github.com/repos/milanowicz/php-testing/zipball/9f190cd7a71e47e9bd540010f6c24a02eea60626",
+                "reference": "9f190cd7a71e47e9bd540010f6c24a02eea60626",
                 "shasum": ""
             },
             "require": {
@@ -757,9 +757,9 @@
             "description": "Library for PHPUnit testing",
             "support": {
                 "issues": "https://github.com/milanowicz/php-testing/issues",
-                "source": "https://github.com/milanowicz/php-testing/tree/1.1.3"
+                "source": "https://github.com/milanowicz/php-testing/tree/1.2.0"
             },
-            "time": "2022-03-15T15:47:45+00:00"
+            "time": "2022-03-16T22:15:41+00:00"
         },
         {
             "name": "myclabs/deep-copy",
