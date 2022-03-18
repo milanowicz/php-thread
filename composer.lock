@@ -716,16 +716,16 @@
         },
         {
             "name": "milanowicz/php-testing",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/milanowicz/php-testing.git",
-                "reference": "4391f13c8f435cbb3b3115d811e5543e52ff38cc"
+                "reference": "763c2df5de82bcedfc27cbd452bda6f55a2428f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/milanowicz/php-testing/zipball/4391f13c8f435cbb3b3115d811e5543e52ff38cc",
-                "reference": "4391f13c8f435cbb3b3115d811e5543e52ff38cc",
+                "url": "https://api.github.com/repos/milanowicz/php-testing/zipball/763c2df5de82bcedfc27cbd452bda6f55a2428f5",
+                "reference": "763c2df5de82bcedfc27cbd452bda6f55a2428f5",
                 "shasum": ""
             },
             "require": {
@@ -733,7 +733,9 @@
             },
             "require-dev": {
                 "infection/infection": "^0.26",
+                "jangregor/phpstan-prophecy": "^1.0",
                 "markrogoyski/math-php": "^2.5",
+                "phpspec/prophecy-phpunit": "^2.0",
                 "phpstan/phpstan": "^1.4",
                 "phpunit/phpunit": "^9.5",
                 "slevomat/coding-standard": "^7.0"
@@ -757,9 +759,9 @@
             "description": "Library for PHPUnit testing",
             "support": {
                 "issues": "https://github.com/milanowicz/php-testing/issues",
-                "source": "https://github.com/milanowicz/php-testing/tree/1.2.1"
+                "source": "https://github.com/milanowicz/php-testing/tree/1.2.2"
             },
-            "time": "2022-03-17T10:37:36+00:00"
+            "time": "2022-03-18T15:52:01+00:00"
         },
         {
             "name": "myclabs/deep-copy",
