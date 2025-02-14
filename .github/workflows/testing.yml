@@ -14,12 +14,9 @@ jobs:
       max-parallel: 2
       matrix:
         os: [ubuntu-latest]
-        php-version: ["8.0", "8.1", "8.2", "8.3"]
+        php-version: ["8.0", "8.1", "8.2", "8.3", "8.4"]
         experimental: [false]
         include:
-          - php-version: "8.4"
-            os: ubuntu-latest
-            experimental: true
           - php-version: "8.5"
             os: ubuntu-latest
             experimental: true
