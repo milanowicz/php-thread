@@ -87,14 +87,14 @@ Run all test suites
 > composer tests
 ```
 
-Run PHP CS Fixer to code styling
+Run PHP Code Styling
 ```shell
 > composer style
 ```
 
-Run PHPStan to analyze
+Run PHPStan to analyze code
 ```shell
-> composer anlayze
+> composer analyze
 ```
 
 Run PHPUnit tests
