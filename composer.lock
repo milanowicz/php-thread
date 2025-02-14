@@ -876,29 +876,29 @@
         },
         {
             "name": "milanowicz/php-testing",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/milanowicz/php-testing.git",
-                "reference": "763c2df5de82bcedfc27cbd452bda6f55a2428f5"
+                "reference": "7d6af9db135cdd2c94b5ec82dde8217d49672016"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/milanowicz/php-testing/zipball/763c2df5de82bcedfc27cbd452bda6f55a2428f5",
-                "reference": "763c2df5de82bcedfc27cbd452bda6f55a2428f5",
+                "url": "https://api.github.com/repos/milanowicz/php-testing/zipball/7d6af9db135cdd2c94b5ec82dde8217d49672016",
+                "reference": "7d6af9db135cdd2c94b5ec82dde8217d49672016",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.0"
             },
             "require-dev": {
-                "infection/infection": "^0.26",
-                "jangregor/phpstan-prophecy": "^1.0",
-                "markrogoyski/math-php": "^2.5",
-                "phpspec/prophecy-phpunit": "^2.0",
-                "phpstan/phpstan": "^1.4",
-                "phpunit/phpunit": "^9.5",
-                "slevomat/coding-standard": "^7.0"
+                "infection/infection": "^0.26.19",
+                "jangregor/phpstan-prophecy": "^2.1.1",
+                "markrogoyski/math-php": "^v2.11.0",
+                "phpspec/prophecy-phpunit": "^v2.3.0",
+                "phpstan/phpstan": "^2.1.5",
+                "phpunit/phpunit": "^9.6.22",
+                "slevomat/coding-standard": "^8.15.0"
             },
             "type": "php-library",
             "autoload": {
@@ -919,9 +919,9 @@
             "description": "Library for PHPUnit testing",
             "support": {
                 "issues": "https://github.com/milanowicz/php-testing/issues",
-                "source": "https://github.com/milanowicz/php-testing/tree/1.2.2"
+                "source": "https://github.com/milanowicz/php-testing/tree/1.2.3"
             },
-            "time": "2022-03-18T15:52:01+00:00"
+            "time": "2025-02-14T17:26:49+00:00"
         },
         {
             "name": "myclabs/deep-copy",

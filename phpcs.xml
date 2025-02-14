@@ -25,7 +25,6 @@
   <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/PHP/UselessSemicolonSniff.php" />
   <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/TypeHints/DeclareStrictTypesSniff.php">
     <properties>
-      <property name="newlinesCountBetweenOpenTagAndDeclare" value="2" />
       <property name="spacesCountAroundEqualsSign" value="0" />
     </properties>
   </rule>
